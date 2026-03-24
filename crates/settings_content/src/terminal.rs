@@ -175,6 +175,9 @@ pub struct TerminalSettingsContent {
     ///
     /// Default: false
     pub show_count_badge: Option<bool>,
+    /// Action to perform on double-clicking the terminal header.
+    /// "new_terminal" opens a new terminal, "toggle_zoom" toggles zoom.
+    pub double_click_action: Option<TerminalHeaderDoubleClickAction>,
 }
 
 /// Shell configuration to open the terminal with.
@@ -476,6 +479,14 @@ pub enum TerminalDockPosition {
     Left,
     Bottom,
     Right,
+}
+
+#[derive(Clone, Copy, Debug, Default, PartialEq, Serialize, Deserialize, JsonSchema, MergeFrom)]
+#[serde(rename_all = "snake_case")]
+pub enum TerminalHeaderDoubleClickAction {
+    #[default]
+    NewTerminal,
+    ToggleZoom,
 }
 
 #[derive(Clone, Copy, Debug, Default, PartialEq, Serialize, Deserialize, JsonSchema, MergeFrom)]
