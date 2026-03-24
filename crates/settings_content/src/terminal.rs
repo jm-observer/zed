@@ -481,7 +481,19 @@ pub enum TerminalDockPosition {
     Right,
 }
 
-#[derive(Clone, Copy, Debug, Default, PartialEq, Serialize, Deserialize, JsonSchema, MergeFrom)]
+#[derive(
+    Clone,
+    Copy,
+    Debug,
+    Default,
+    PartialEq,
+    Serialize,
+    Deserialize,
+    JsonSchema,
+    MergeFrom,
+    strum::VariantArray,
+    strum::VariantNames,
+)]
 #[serde(rename_all = "snake_case")]
 pub enum TerminalHeaderDoubleClickAction {
     #[default]
