@@ -248,6 +248,7 @@ pub fn migrate_settings(text: &str) -> Result<Option<String>> {
             &SETTINGS_QUERY_2026_03_16,
         ),
         MigrationType::Json(migrations::m_2026_03_31::remove_text_thread_settings),
+        MigrationType::Json(migrations::m_2026_03_30::make_play_sound_when_agent_done_an_enum),
     ];
     run_migrations(text, migrations)
 }
